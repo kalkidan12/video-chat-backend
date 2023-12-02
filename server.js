@@ -4,11 +4,12 @@ const app = express();
 const server = http.createServer(app);
 const io = require("socket.io")(server);
 // Middleware to accept JSON in body
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
 app.get("/", (req, res) => {
   res.status(200).send("Video Chat Server Home");
 });
