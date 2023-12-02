@@ -7,6 +7,8 @@ const io = require("socket.io")(server, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
+    transports: ["websocket", "polling"],
+    credentials: true,
   },
 });
 app.use(
