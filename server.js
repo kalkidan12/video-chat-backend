@@ -8,7 +8,6 @@ const io = require("socket.io")(server, {
     methods: ["GET", "POST"],
   },
 });
-
 app.get("/", (req, res) => {
   res.status(200).send("Video Chat Server Home");
 });
