@@ -10,7 +10,7 @@ const io = require("socket.io")(server, {
 });
 
 app.get("/", (req, res) => {
-  res.status(200).json("Video Chat Server Home");
+  res.status(200).send("Video Chat Server Home");
 });
 io.on("connection", (socket) => {
   socket.emit("me", socket.id);
